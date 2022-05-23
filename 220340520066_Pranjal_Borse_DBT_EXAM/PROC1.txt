@@ -1,0 +1,21 @@
+use juhu;
+
+create table TEMPP( result varchar(30));
+delimiter //
+create procedure PROC1(str1 varchar(30), str2 varchar(30))
+begin
+	
+	if  instr(str2,str1) then
+		insert into TEMPP values('str1 Present in str2');
+        
+	else
+		insert into TEMPP values('str1 is not  Present in str2');
+	end if;
+    end ; //
+delimiter ;
+
+call PROC1('DAC','CDAC');
+
+call PROC1('PAN','CDAC');
+
+select * from TEMPP;
